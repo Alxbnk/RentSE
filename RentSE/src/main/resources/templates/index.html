@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rent Self-Employed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body style="background-color:LightGray;">
+<!-- Navbar (sit on top) -->
+
+    <div class="w3-top">
+        <div style="background-color:SlateGray" class="w3-bar w3-wide w3-padding w3-card">
+            <!-- Float links to the right. Hide them on small screens-->
+            <div style="text-align:center;color:white;" class="topnav">
+                <div class="w3-left w3-hide-small">
+                    <a href="/" style="color:white" class="w3-bar-item w3-button">Home</a>
+                </div>
+                <a style="color:white;" href="/tømrere">Tømrere</a>
+                <a style="color:white;" href="/snedkere">Snedkere</a>
+                <a style="color:white;" href="/tag">Tag</a>
+                <a style="color:white;" href="/maler">Maler</a>
+                <a style="color:white;" href="/murer">Murer</a>
+                <a style="color:white;" href="/jordbeton">JordBeton</a>
+                <a style="color:white;" href="/smed">Smed</a>
+                <a style="color:white;" href="/vvs">VVS</a>
+                <a style="color:white;" href="/elektrikker">Elektrikker</a>
+                <div class="w3-right w3-hide-small">
+                    <a href="/login" style="color:white" class="w3-bar-item w3-button">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br><br>
+
+    <div class="w3-center">
+        <h1><b>Selvstændige</b></h1>
+    </div>
+
+<br><br>
+
+    <div class="w3-center w3-row w3-content w3-padding-32" th:each = "se : ${SE}">
+        <div class="w3-col w3-center l3 m6 w3-padding-32" style="background-color:white;" >
+            <div>
+                <p>Name: <a th:text = "${se.seName}"></a></p>
+                <p>Age: <a th:text = "${se.seAge}"></a></p>
+                <p>Startwage: <a th:text = "${se.startWage}"></a></p>
+                <p>Description: <a th:text = "${se.seDescription}"></a></p>
+                <a th:href="${'read/' + se.idSE}" class="nav-link; btn btn-success">More Info</a>
+            </div>
+        </div>
+    </div>
+
+<footer class="w3-bottom">
+    <a href="/createSE" class="nav-link; btn btn-success">Tilføj Selvstændig</a>
+</footer>
+
+
+</body>
+</html>

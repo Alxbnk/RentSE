@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rent Self-Employed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body style="background-color:LightGray;">
+<!-- Navbar (sit on top) -->
+
+<div class="w3-top">
+    <div style="background-color:SlateGray" class="w3-bar w3-wide w3-padding w3-card">
+        <!-- Float links to the right. Hide them on small screens-->
+        <div style="text-align:center;color:white;" class="topnav">
+            <div class="w3-left w3-hide-small">
+                <a href="/" style="color:white" class="w3-bar-item w3-button">Home</a>
+            </div>
+            <a style="color:white;" href="/tømrere">Tømrere</a>
+            <a style="color:white;" href="/snedkere">Snedkere</a>
+            <a style="color:white;" href="/tag">Tag</a>
+            <a style="color:white;" href="/maler">Maler</a>
+            <a style="color:white;" href="/murer">Murer</a>
+            <a style="color:white;" href="/jordbeton">JordBeton</a>
+            <a style="color:white;" href="/smed">Smed</a>
+            <a style="color:white;" href="/vvs">VVS</a>
+            <a style="color:white;" href="/elektrikker">Elektrikker</a>
+            <div class="w3-right w3-hide-small">
+                <a href="/login" style="color:white" class="w3-bar-item w3-button">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="w3-center">
+    <h1>Edit Uddanelse: <span th:text="${EDU.eduName}"></span></h1>
+</div>
+
+<br><br>
+
+<form class="w3-center" th:method="Post"  th:object="${EDU}">
+    <table class="table table-striped table-bordered table-hover">
+        <input type="hidden"/>
+        <p>Uddanelse: </p><select th:field="${EDU.eduEducation}">
+        <option value="Tømrere">Tømrere</option>
+        <option value="Snedkere">Snedkere</option>
+        <option value="Tag">Tag</option>
+        <option value="JordBeton">JordBeton</option>
+        <option value="Maler">Maler</option>
+        <option value="Smed">Smed</option>
+        <option value="VVS">VVS</option>
+        <option value="Murer">Murer</option>
+        <option value="Elektrikker">Elektrikker</option>
+        </select>
+        <p>Uddanelses sted: </p><input type="text" size="40" th:field="${EDU.eduName}"/>
+        <br><br>
+        <p>Beskrivelse af Uddanelsen: </p><textarea rows="4" cols="50" th:field="${EDU.eduDescription}"></textarea>
+        <br><br>
+        <p>År uddanelsen tog: </p><input type="number" size="40" th:field="${EDU.eduTime}"/>
+        <br><br>
+        <input type="submit" class="btn btn-success" value="Edit">
+    </table>
+</form>
+
+<footer class="w3-bottom">
+    <a th:href="${'deleteEDU/' + EDU.idEdu}" style="background-color:red" class="nav-link; btn btn-success"
+       onclick="return confirm('Are you sure to delete?')">Delete</a>
+</footer>
+
+</body>
+
+</html>
